@@ -17,6 +17,6 @@ if (!([IO.Path]::GetExtension($in) -eq ".svg")) {
 $newExtension = "emf"
 $out = [io.path]::ChangeExtension($in, $newExtension)
 
-Write-Host "Converting" $in "to emf.."
+Write-Host "Converting" $in "to" $newExtension ".."
 inkscape $in -g --verb=FitCanvasToDrawing --verb=FileSave --verb=FileClose --verb=FileQuit
 inkscape $in -z --export-dpi=400 --export-area-drawing --export-emf=$out
