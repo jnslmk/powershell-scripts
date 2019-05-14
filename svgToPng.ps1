@@ -3,7 +3,7 @@ param (
 )
 if (!(Test-Path $in)) {
    Write-Host "Script interrupted - File" $in "does not exist"
-   exit
+   exit 1
 }
    
 $in = Convert-Path $in
