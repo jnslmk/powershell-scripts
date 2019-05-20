@@ -14,5 +14,6 @@ $out = [io.path]::ChangeExtension($in, $newExtension)
 
 Write-Host "Converting" $in "to" $newExtension ".."
 # Using https://github.com/jalios/pdf2svg-windows
-pdf2svg $in ~.svg
-inkscape -T ~.svg --export-emf=$out
+inkscape ~.svg --with-gui --verb=FitCanvasToDrawing --verb=FileSave --verb=FileClose --verb=FileQuit
+# export-emf is only available on windows
+inkscape ~.svg --export-area-drawing --export-emf=$out
